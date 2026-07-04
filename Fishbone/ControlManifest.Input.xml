@@ -2,7 +2,7 @@
 <manifest>
   <control namespace="BenOBrien"
            constructor="Fishbone"
-           version="1.2.0"
+           version="1.2.1"
            display-name-key="Fishbone Diagram"
            description-key="Fishbone / Ishikawa cause-and-effect diagram. Click a bone to add root causes with votes and a Hypothesis/Confirmed/Rejected status; drag causes to reorder or move between bones."
            control-type="standard">
