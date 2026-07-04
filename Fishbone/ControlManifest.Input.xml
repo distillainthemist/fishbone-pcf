@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="BenOBrien"
+           constructor="Fishbone"
+           version="1.2.0"
+           display-name-key="Fishbone Diagram"
+           description-key="Fishbone / Ishikawa cause-and-effect diagram. Click a bone to add root causes with votes and a Hypothesis/Confirmed/Rejected status; drag causes to reorder or move between bones."
+           control-type="standard">
+
+    <!-- Root causes, persisted as a JSON array. -->
+    <property name="causeData"
+              display-name-key="Cause Data (JSON)"
+              description-key="JSON array of root causes: [{id, category, text, votes, status}]. Bind to a Multiple Lines of Text column or a canvas variable."
+              of-type="Multiple"
+              usage="bound"
+              required="true" />
+
+    <!-- Category (bone) names, persisted as a JSON array. -->
+    <property name="diagramCategories"
+              display-name-key="Categories (JSON)"
+              description-key="JSON array (or comma-separated list) of category names. Defaults to Measurements, Materials, People, Environment, Methods, Machines."
+              of-type="Multiple"
+              usage="bound"
+              required="false" />
+
+    <!-- The effect / problem statement shown in the fish head. -->
+    <property name="problem"
+              display-name-key="Problem / Effect"
+              description-key="The effect (problem statement) shown in the fish head. Editable by clicking the head."
+              of-type="SingleLine.Text"
+              usage="bound"
+              required="false" />
+
+    <!-- Heading shown at the top of the effect box. -->
+    <property name="effectLabel"
+              display-name-key="Effect Box Title"
+              description-key="Heading shown at the top of the effect box. Default: Problem."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="Problem" />
+
+    <!-- Styling inputs -->
+    <property name="fontFamily"
+              display-name-key="Font"
+              description-key="Font family (or comma-separated font stack) for all text."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="Segoe UI, system-ui, sans-serif" />
+
+    <property name="backgroundColor"
+              display-name-key="Background Colour"
+              description-key="Background colour of the diagram (any CSS colour or hex). Also used as the PNG export background. Default white."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="#ffffff" />
+
+    <property name="diagramColor"
+              display-name-key="Fishbone Colour"
+              description-key="Colour of the spine, bones and head (any CSS colour or hex). Default black."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="#1b1b1b" />
+
+    <property name="hypothesisColor"
+              display-name-key="Hypothesis Colour"
+              description-key="Colour for Hypothesis causes (any CSS colour or hex). Default yellow."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="#f2c811" />
+
+    <property name="confirmedColor"
+              display-name-key="Confirmed Colour"
+              description-key="Colour for Confirmed causes (any CSS colour or hex). Default green."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="#107c10" />
+
+    <property name="rejectedColor"
+              display-name-key="Rejected Colour"
+              description-key="Colour for Rejected causes (any CSS colour or hex). Default red."
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false"
+              default-value="#d13438" />
+
+    <!-- Optional: force read-only regardless of form state. -->
+    <property name="readOnly"
+              display-name-key="Read Only"
+              description-key="When true, disables all editing (view only)."
+              of-type="TwoOptions"
+              usage="input"
+              required="false"
+              default-value="false" />
+
+    <!-- PNG snapshot of the diagram as a data URI, refreshed after each change. -->
+    <property name="pngExport"
+              display-name-key="PNG Export (data URI)"
+              description-key="Read-only PNG snapshot of the diagram as a data URI. Use e.g. in an Image control or send to Power Automate to save a .png file."
+              of-type="Multiple"
+              usage="output" />
+
+    <!-- CSS is bundled into the code (see styles.ts) because canvas apps
+         sometimes fail to load a separate css resource. -->
+    <resources>
+      <code path="index.ts" order="1" />
+    </resources>
+
+  </control>
+</manifest>

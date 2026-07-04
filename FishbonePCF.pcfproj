@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Name>FishbonePCF</Name>
+    <ProjectGuid>68c53078-6b13-4ad1-b548-d21947c8d3a1</ProjectGuid>
+    <TargetFramework>net462</TargetFramework>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <!-- Absolute path so referencing .cdsproj can locate the built control
+         (a relative path would be resolved against the Solution directory). -->
+    <OutputPath>$(MSBuildThisFileDirectory)out/controls</OutputPath>
+  </PropertyGroup>
+
+  <!-- Source files that make up the control. node_modules / build output are excluded. -->
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\**"
+          Exclude="$(MSBuildThisFileDirectory)\bin\**;
+                   $(MSBuildThisFileDirectory)\obj\**;
+                   $(MSBuildThisFileDirectory)\out\**;
+                   $(MSBuildThisFileDirectory)\node_modules\**;
+                   $(MSBuildThisFileDirectory)\generated\**;
+                   $(MSBuildThisFileDirectory)\Solution\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.Pcf" Version="1.*" />
+  </ItemGroup>
+
+</Project>

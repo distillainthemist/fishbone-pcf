@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ProjectGuid>5551a5fc-b038-4c87-851a-ce4efe8a6ccd</ProjectGuid>
+    <TargetFramework>net462</TargetFramework>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <!-- SolutionPackageType: Unmanaged (dev), Managed (prod), or Both -->
+    <SolutionPackageType>Both</SolutionPackageType>
+    <!-- Metadata (Solution.xml etc.) lives under src/ -->
+    <SolutionRootPath>src</SolutionRootPath>
+  </PropertyGroup>
+
+  <!-- Reference the PCF control project so its bundle is packed into the solution. -->
+  <ItemGroup>
+    <ProjectReference Include="..\FishbonePCF.pcfproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.Solution" Version="1.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="src\Other\Solution.xml" />
+    <None Include="src\Other\Customizations.xml" />
+    <None Include="src\Other\Relationships.xml" />
+  </ItemGroup>
+
+</Project>
