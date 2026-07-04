@@ -31,6 +31,7 @@ JSON fields (causes + categories) plus a plain-text problem statement — no ext
 - **Fully themable via inputs** — font, fishbone colour, and each status colour (see below).
 - **Read-only** mode (via the `readOnly` property or a disabled/locked form field).
 - Zero external runtime dependencies — pure TypeScript + SVG, so it builds cleanly.
+- **MIT licensed.**
 
 ## Properties
 

@@ -2,6 +2,8 @@
   "name": "fishbone-pcf",
   "version": "1.0.0",
   "description": "Fishbone / Ishikawa cause-and-effect diagram PowerApps component framework control",
+  "license": "MIT",
+  "author": "Ben O'Brien",
   "scripts": {
     "prestart": "find . -name .DS_Store -not -path './node_modules/*' -delete 2>/dev/null || true",
     "build": "pcf-scripts build",
